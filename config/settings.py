@@ -1,19 +1,84 @@
-from pathlib import Path
+import os
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+# -----------------------------
+# DATABASE
+# -----------------------------
 
-DB_PATH = BASE_DIR / "database" / "data" / "chinnu.db"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-MIN_MARKET_CAP = 500  # crore
+DATABASE_PATH = os.path.join(
+    BASE_DIR,
+    "database",
+    "data",
+    "chinnu.db"
+)
 
-MIN_DAILY_VALUE_TRADED = 5  # crore
+# -----------------------------
+# MARKET
+# -----------------------------
 
-TOP_RANKS_TO_SEND = 20
+UNIVERSE_MIN_MARKET_CAP = 500  # Crores
 
-LOOKBACK_DAYS = 252
+LOOKBACK_DAYS = 500
 
-STRUCTURE_WEIGHT = 0.45
-RS_WEIGHT = 0.20
-QUALITY_WEIGHT = 0.15
-SPONSORSHIP_WEIGHT = 0.10
-RISK_WEIGHT = 0.10
+TOP_PICKS = 10
+
+# -----------------------------
+# SCORING
+# -----------------------------
+
+TREND_WEIGHT = 20
+STRUCTURE_WEIGHT = 20
+RS_WEIGHT = 20
+BREAKOUT_WEIGHT = 15
+VOLUME_WEIGHT = 10
+SECTOR_WEIGHT = 10
+RISK_REWARD_WEIGHT = 5
+
+TOTAL_SCORE = 100
+
+# -----------------------------
+# INDICATORS
+# -----------------------------
+
+EMA_FAST = 20
+EMA_MID = 50
+EMA_SLOW = 200
+
+RSI_PERIOD = 14
+ATR_PERIOD = 14
+ADX_PERIOD = 14
+
+VOLUME_PERIOD = 20
+
+# -----------------------------
+# TELEGRAM
+# -----------------------------
+
+TELEGRAM_TOKEN = ""
+
+TELEGRAM_CHAT_ID = ""
+
+# -----------------------------
+# GEMINI
+# -----------------------------
+
+GEMINI_API_KEY = ""
+
+GEMINI_MODEL = "gemini-2.5-flash"
+
+# -----------------------------
+# BACKTEST
+# -----------------------------
+
+BACKTEST_HOLD_DAYS = 90
+
+STOP_LOSS_PERCENT = 8
+
+TARGET_PERCENT = 25
+
+# -----------------------------
+# SCHEDULER
+# -----------------------------
+
+RUN_TIME = "17:00"
